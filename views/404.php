@@ -8,4 +8,4 @@
 
 ?>
 
-404 page you idiot!
+404 page you idiot
