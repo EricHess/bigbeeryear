@@ -20,7 +20,7 @@ require('./controllers/pageController.php');
         <?php
             //Include the necessary page from the path
             if(pageController::createPath() === false){
-                echo ' error ';
+                include './views/404.php';
             }else{
                 include pageController::createPath().'';
             }

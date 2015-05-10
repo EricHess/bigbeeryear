@@ -31,7 +31,11 @@ class pageController {
         }
 
         $directPath = rtrim($directPath, '/');
+        if(file_exists($directPath.'.php')){
         return $directPath.'.php';
+        } else{
+            return false;
+        }
     }
 
 }
