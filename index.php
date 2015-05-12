@@ -8,6 +8,7 @@
 
 require('./controllers/urlController.php');
 require('./controllers/pageController.php');
+require('./controllers/databaseController.php');
 
 ?>
 
@@ -20,6 +21,7 @@ require('./controllers/pageController.php');
         <?php
             //Include the necessary page from the path
             if(pageController::createPath() === false){
+                http_response_code(404);
                 include './views/404.php';
             }else{
                 include pageController::createPath().'';

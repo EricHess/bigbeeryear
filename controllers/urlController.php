@@ -12,7 +12,11 @@
 class urlController {
 
     public static function returnURLParameters(){
+        if($_SERVER['SCRIPT_NAME'] == '/bigbeeryear/index.php'){
+            $urlParams = '';
+        }else{
         $urlParams =  explode('/',$_SERVER['REDIRECT_URL']);
+        }
         return $urlParams;
     }
 

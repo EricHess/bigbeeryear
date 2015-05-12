@@ -34,7 +34,12 @@ class pageController {
         if(file_exists($directPath.'.php')){
         return $directPath.'.php';
         } else{
-            return false;
+            if($_SERVER['REQUEST_URI'] == '/bigbeeryear/'){
+                return './views/start.php';
+            }else{
+                return false;
+            }
+
         }
     }
 
