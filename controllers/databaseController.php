@@ -8,6 +8,12 @@
 
 require('createController.php');
 
+//TODO: call createNew with sanitized "$creationType" from the $_POST
+if($_POST){
+    $createType = $_POST['createType'];
+    databaseController::createNew($createType, $_POST);
+}
+
 class databaseController {
 
     //TODO: Determine schemas for desired dBs

@@ -14,10 +14,22 @@ require('./controllers/databaseController.php');
 
 <html>
     <head>
-
+    <script src="./scripts/jquery.js"></script>
+    <script src="./scripts/creationCalls.js"></script>
     </head>
 
     <body>
+
+    <header>
+        <form name="userCreate" id="createUser">
+            <input type="hidden" name="createType" value="user" />
+            <input type="text" name="username" />
+            <input type="text" name="email" />
+            <input type="text" name="password" />
+            <button type="submit">Click</button>
+        </form>
+    </header>
+
         <?php
             //Include the necessary page from the path
             if(pageController::createPath() === false){
