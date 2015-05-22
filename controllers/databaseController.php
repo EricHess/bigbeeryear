@@ -8,15 +8,15 @@
 
 require('createController.php');
 
-//TODO: call createNew with sanitized "$creationType" from the $_POST
-if($_POST){
+print_r($_POST);
+
+if(!empty($_POST['createType'])){
     $createType = $_POST['createType'];
     databaseController::createNew($createType, $_POST);
 }
 
 class databaseController {
 
-    //TODO: Determine schemas for desired dBs
     //TODO: Create user profiles and paths
 
     public static function connectToDatabase(){
@@ -52,5 +52,4 @@ class databaseController {
                 break;
         };
     }
-
 }

@@ -28,9 +28,11 @@ class pageController {
         for($i = 2; $i < urlController::urlParametersCount(); $i++ ){
             $directPath .= urlController::returnURLParameters()[$i];
             $directPath .= '/';
+
         }
 
         $directPath = rtrim($directPath, '/');
+
         if(file_exists($directPath.'.php')){
         return $directPath.'.php';
         } else{

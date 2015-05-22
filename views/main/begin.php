@@ -5,7 +5,8 @@
  * Date: 5/3/2015
  * Time: 9:48 PM
  * Beginning page of The Big Beer Year
+ * Will serve as the dashboard
  */
 
 
-
+echo 'HELLO THERE';

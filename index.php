@@ -16,11 +16,13 @@ require('./controllers/databaseController.php');
     <head>
     <script src="./scripts/jquery.js"></script>
     <script src="./scripts/creationCalls.js"></script>
+    <script src="./scripts/loginCalls.js"></script>
     </head>
 
     <body>
 
     <header>
+        User Create:<br />
         <form name="userCreate" id="createUser">
             <input type="hidden" name="createType" value="user" />
             <input type="text" name="username" />
@@ -28,6 +30,14 @@ require('./controllers/databaseController.php');
             <input type="text" name="password" />
             <button type="submit">Click</button>
         </form>
+
+        Login:<br />
+        <form name="userLogin" id="userLogin">
+            <input type="text" name="username" />
+            <input type="text" name="password" />
+            <button type="submit">Login</button>
+        </form>
+
     </header>
 
         <?php

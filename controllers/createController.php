@@ -13,11 +13,12 @@ class createController {
         $connect = databaseController::connectToDatabase();
         $username = $createPackage['username'];
         $email = $createPackage['email'];
-        $password = $createPackage['password'];
+        $password = md5($createPackage['password']);
         $sqlStatement = "INSERT INTO `bbydb`.`users` (`uid`, `name`, `email`, `password`) VALUES ('','".$username."','".$email."','".$password."')";
         mysqli_query($connect,$sqlStatement);
     }
 
+//TODO: Create beer form and designate fields
     public static function beerCreate($createPackage){
         $connect = databaseController::connectToDatabase();
         $username = $createPackage['username'];
@@ -27,6 +28,7 @@ class createController {
         mysqli_query($connect,$sqlStatement);
     }
 
+    //TODO: Create brewery form and designate fields
     public static function breweryCreate($createPackage){
         $connect = databaseController::connectToDatabase();
         $username = $createPackage['username'];

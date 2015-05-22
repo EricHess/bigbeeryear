@@ -9,16 +9,14 @@ bigbeeryear.prototype.userCreate = function(element){
         type:'post',
         url:'./controllers/databaseController.php',
         data:element.serialize(),
-        success: function(data){
-            alert(data);
+        success: function(){
+            alert('user created');
         }
     })
 };
 
-
 $(document).ready(function(){
     $('form#createUser').submit(function(){
-        alert('sub');
         bigbeeryear.prototype.userCreate($(this));
         return false;
     });
