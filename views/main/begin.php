@@ -9,4 +9,12 @@
  */
 
 
-echo 'HELLO THERE';
+echo 'Items to show on dashboard:<br />
+Welcome, Name<br />
+Active list<br />
+Progress on active list<br />
+My Lists<br />
+Add New Section:<br />
+New beer/brewery/list
+
+';

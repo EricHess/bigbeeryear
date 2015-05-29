@@ -17,9 +17,11 @@ class urlController {
             if ($_SERVER['REQUEST_URI'] == '/bigbeeryear/index.php') {
                 $urlParams = '';
             } else {
-                $urlParams = explode('/', $_SERVER['REQUEST_URI']);
+                $urlParams = explode('?', $_SERVER['REQUEST_URI']);
+                $urlParams = explode('/', $urlParams[0]);
             }
         }
+        print_r($urlParams);
         return $urlParams;
     }
 

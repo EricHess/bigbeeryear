@@ -15,18 +15,13 @@ if(!empty($_POST['username'])){
 class userController {
 
     public static function userLogin($username, $passwordhash){
-        //query db with username
-        //check if username exists (if not, return false and handle error later
-        //verify pw hash against passed in value
-        //success, direct to start.php
         $conn = databaseController::connectToDatabase();
         $pw = md5($passwordhash);
         $sql = "SELECT * from `users` where name = '".$username."' and password='".$pw."'";
         $userCheck = mysqli_query($conn,$sql);
         if($userCheck->num_rows == 1){
-            echo 'success';
+            return true;
         }else{
-            echo 'wrong password or bad login combo';
             return false;
         }
     }

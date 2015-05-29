@@ -4,20 +4,20 @@
 
 var bigbeeryear = function(){};
 
-bigbeeryear.prototype.userCreate = function(element){
+bigbeeryear.prototype.itemCreate = function(element){
     $.ajax({
         type:'post',
         url:'./controllers/databaseController.php',
         data:element.serialize(),
-        success: function(){
-            alert('user created');
+        success: function(data){
+            alert(data);
         }
     })
 };
 
 $(document).ready(function(){
-    $('form#createUser').submit(function(){
-        bigbeeryear.prototype.userCreate($(this));
+    $('form#createUser, form#createBeer, form#createBrewery').submit(function(){
+        bigbeeryear.prototype.itemCreate($(this));
         return false;
     });
 });
