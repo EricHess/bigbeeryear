@@ -6,5 +6,8 @@
  * Time: 8:39 PM
  */
 
-echo 'LIST CREATION HERE';
-echo $_GET['beerSize'];
+if(empty($_POST['beerSize'])){
+echo 'nuh uh, no post here!';
+}else{
+echo $_POST['beerSize'];
+}

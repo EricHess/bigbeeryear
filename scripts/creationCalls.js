@@ -15,9 +15,24 @@ bigbeeryear.prototype.itemCreate = function(element){
     })
 };
 
+//bigbeeryear.prototype.listCreate = function(element){
+//    $.ajax({
+//        type:'post',
+//        url:'./controllers/listController.php',
+//        data:element.serialize(),
+//        success: function(data){
+//        }
+//    })
+//};
+
 $(document).ready(function(){
     $('form#createUser, form#createBeer, form#createBrewery').submit(function(){
         bigbeeryear.prototype.itemCreate($(this));
         return false;
     });
+
+    //$('form#listStep1').submit(function(){
+    //    bigbeeryear.prototype.listCreate($(this));
+    //    return false;
+    //});
 });

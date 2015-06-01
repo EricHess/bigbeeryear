@@ -7,8 +7,7 @@
  */
 
 require('createController.php');
-
-print_r($_POST);
+require('listController.php');
 
 if(!empty($_POST['createType'])){
     $createType = $_POST['createType'];
@@ -48,7 +47,7 @@ class databaseController {
                 createController::breweryCreate($creationPackage);
                 break;
             case('list'):
-                createController::listCreate($creationPackage);
+                listController::listCreate($creationPackage);
                 break;
         };
     }

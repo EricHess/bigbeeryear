@@ -21,7 +21,6 @@ class urlController {
                 $urlParams = explode('/', $urlParams[0]);
             }
         }
-        print_r($urlParams);
         return $urlParams;
     }
 

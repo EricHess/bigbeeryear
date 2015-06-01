@@ -70,7 +70,7 @@ require('./controllers/databaseController.php');
         TODO: Pass off package to PHP
         -->
         <br /><br /><br /><br /><br />
-        <form name="listStep1" id="listStep1" action="./stages/stage1">
+        <form name="listStep1" id="listStep1" method="post" action="./stages/stage1">
             <input type="hidden" name="createType" value="list"/>
             <input type="text" name="listName" value="" placeholder="Name Your List"/>
             <select name="beerSize" class="beerSize">

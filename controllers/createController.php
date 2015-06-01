@@ -47,8 +47,4 @@ class createController {
 
     }
 
-    public static function listCreate($createPackage){
-        //not sure yet.. catalog_it integration?
-    }
-
 }

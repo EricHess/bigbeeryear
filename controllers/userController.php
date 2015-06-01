@@ -24,6 +24,10 @@ class userController {
         }else{
             return false;
         }
+
+        //TODO: Start a session
+        //TODO: Set a cookie or session cookie or local storage with login status
+
     }
 
 }
