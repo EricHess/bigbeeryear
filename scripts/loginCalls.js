@@ -14,7 +14,18 @@ bigbeeryearLogin.prototype.userLogin = function(element){
         url:'./controllers/userController.php',
         data:element.serialize(),
         success: function(data){
-            window.location = "./main/begin"
+            //window.location = "./main/begin"
+            window.location = '/bigbeeryear'
+        }
+    })
+};
+bigbeeryearLogin.prototype.userLogout = function(element){
+    $.ajax({
+        type:'post',
+        url:'./controllers/userController.php',
+        data:element.serialize(),
+        success: function(data){
+            alert(data);
         }
     })
 };
@@ -23,6 +34,11 @@ bigbeeryearLogin.prototype.userLogin = function(element){
 $(document).ready(function(){
     $('form#userLogin').submit(function(){
         bigbeeryearLogin.prototype.userLogin($(this));
+        return false;
+    });
+
+    $('form#logout').submit(function(){
+        bigbeeryearLogin.prototype.userLogout($(this));
         return false;
     });
 });

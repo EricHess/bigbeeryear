@@ -10,18 +10,25 @@ require('./controllers/urlController.php');
 require('./controllers/pageController.php');
 require('./controllers/databaseController.php');
 
+//TODO: Figure out login..
+//TODO: Figure out sessions..
 ?>
 
 <html>
     <head>
-    <script src="./scripts/jquery.js"></script>
-    <script src="./scripts/creationCalls.js"></script>
-    <script src="./scripts/loginCalls.js"></script>
+    <script src="/bigbeeryear/scripts/jquery.js"></script>
+    <script src="/bigbeeryear/scripts/creationCalls.js"></script>
+    <script src="/bigbeeryear/scripts/loginCalls.js"></script>
+    <script src="/bigbeeryear/scripts/listCalls.js"></script>
     </head>
 
     <body>
 
     <header>
+        <form id="logout" name="logout">
+            <input type="hidden" name="logout" value="logout" />
+            <button name='logout' value="logout" class="logout">Logout</button>
+        </form>
         User Create:<br />
         <form name="userCreate" id="createUser">
             <input type="hidden" name="createType" value="user" />

@@ -51,4 +51,20 @@ class databaseController {
                 break;
         };
     }
+
+    public static function getBeerList(){
+        $connect = databaseController::connectToDatabase();
+        $sql = "SELECT * from bbydb.beers";
+        $query = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($query);
+        return $result;
+    }
+
+    public static function getBreweryList(){
+        $connect = databaseController::connectToDatabase();
+        $sql = "SELECT * from bbydb.breweries";
+        $query = mysqli_query($connect, $sql);
+        $result = mysqli_fetch_all($query);
+        return $result;
+    }
 }
