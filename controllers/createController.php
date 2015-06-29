@@ -18,7 +18,6 @@ class createController {
         mysqli_query($connect,$sqlStatement);
     }
 
-//TODO: Create beer form and designate fields
     public static function beerCreate($createPackage){
         $connect = databaseController::connectToDatabase();
         $beerName = $createPackage['beer_name'];

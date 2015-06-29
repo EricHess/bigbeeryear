@@ -13,8 +13,14 @@ if(!empty($_POST['username'])){
 }
 
 if($_POST['logout'] == "logout"){
-//    session_destroy();
+    session_start();
+    $_SESSION = array();
+    session_destroy();
 }
+
+/*TODO: User Login below:
+ * Whiteboard out path through site for user
+ */
 
 class userController {
 
@@ -23,9 +29,16 @@ class userController {
         $pw = md5($passwordhash);
         $sql = "SELECT * from `users` where name = '".$username."' and password='".$pw."'";
         $userCheck = mysqli_query($conn,$sql);
+
         if($userCheck->num_rows == 1){
             session_start();
+
+            $sql = "SELECT * from `users` where name = '".$username."' and password='".$pw."'";
+            $userID = mysqli_query($conn,$sql);
+            $userID = mysqli_fetch_all($userID);
             $_SESSION['logged_in']= "logged_in";
+            $_SESSION['userID']= $userID;
+
             return true;
         }else{
             return false;

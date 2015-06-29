@@ -12,6 +12,8 @@ require('./controllers/databaseController.php');
 
 //TODO: Figure out login..
 //TODO: Figure out sessions..
+
+session_start();
 ?>
 
 <html>
@@ -23,11 +25,18 @@ require('./controllers/databaseController.php');
     </head>
 
     <body>
-
+<?php
+    if(isset($_SESSION["logged_in"])){
+        echo 'logged in now';
+        $userID = $_SESSION["userID"][0][0];
+    }else{
+        echo 'not logged in';
+    };
+?>
     <header>
         <form id="logout" name="logout">
             <input type="hidden" name="logout" value="logout" />
-            <button name='logout' value="logout" class="logout">Logout</button>
+            <input type="submit" name='logout' class="logout" value="Logout"/>
         </form>
         User Create:<br />
         <form name="userCreate" id="createUser">
@@ -72,7 +81,7 @@ require('./controllers/databaseController.php');
             <button type="submit">Click</button>
         </form>
 
-        <!-- TODO: Figure out list creation
+        <!--
         TODO: Name Of List, Size Of List(?), Beers, Breweries, Brewery Locations, Beer Score, Add up Beer Score for Total List Score
         TODO: Pass off package to PHP
         -->

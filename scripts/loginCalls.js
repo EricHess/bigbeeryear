@@ -14,7 +14,6 @@ bigbeeryearLogin.prototype.userLogin = function(element){
         url:'./controllers/userController.php',
         data:element.serialize(),
         success: function(data){
-            //window.location = "./main/begin"
             window.location = '/bigbeeryear'
         }
     })
@@ -39,6 +38,6 @@ $(document).ready(function(){
 
     $('form#logout').submit(function(){
         bigbeeryearLogin.prototype.userLogout($(this));
-        return false;
+        window.location="/bigbeeryear";
     });
 });
