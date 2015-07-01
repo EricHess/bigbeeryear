@@ -27,4 +27,13 @@ class userDashboard {
         return $result;
     }
 
+    public static function parseBeerNamesFromIDs($id){
+        $con = databaseController::connectToDatabase();
+        //TODO: Need to associate list_owner_id to userID -- should be simple now.
+        $sql = "SELECT * from `beers` where beer_id = '".$id."'";
+        $result = mysqli_query($con,$sql);
+        $result = mysqli_fetch_all($result);
+        return $result;
+    }
+
 }

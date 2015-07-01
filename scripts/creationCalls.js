@@ -7,10 +7,10 @@ var bigbeeryear = function(){};
 bigbeeryear.prototype.itemCreate = function(element){
     $.ajax({
         type:'post',
-        url:'./controllers/databaseController.php',
+        url:'/bigbeeryear/controllers/databaseController.php',
         data:element.serialize(),
         success: function(data){
-            alert(data);
+            alert("Element Created!");
         }
     })
 };

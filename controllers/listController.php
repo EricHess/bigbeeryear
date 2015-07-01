@@ -14,7 +14,7 @@ if(!empty($_POST['createType'])){
 class listController {
 
     public static function listCreate($createPackage){
-        print_r($createPackage);
+
     }
 
 }

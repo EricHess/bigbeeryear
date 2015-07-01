@@ -11,7 +11,7 @@ var bigbeeryearLogin = function(){};
 bigbeeryearLogin.prototype.userLogin = function(element){
     $.ajax({
         type:'post',
-        url:'./controllers/userController.php',
+        url:'/bigbeeryear/controllers/userController.php',
         data:element.serialize(),
         success: function(){
             window.location = '/bigbeeryear/user/dashboard'

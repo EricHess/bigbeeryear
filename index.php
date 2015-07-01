@@ -27,86 +27,25 @@ session_start();
     <body>
 <?php
     if(isset($_SESSION["logged_in"])){
-        echo 'logged in now';
         $userID = $_SESSION["userID"][0][0];
-    }else{
-        echo 'not logged in';
     };
 ?>
     <header>
-        <form id="logout" name="logout">
-            <input type="hidden" name="logout" value="logout" />
-            <input type="submit" name='logout' class="logout" value="Logout"/>
-        </form>
-        User Create:<br />
-        <form name="userCreate" id="createUser">
-            <input type="hidden" name="createType" value="user" />
-            <input type="text" name="username" />
-            <input type="text" name="email" />
-            <input type="text" name="password" />
-            <button type="submit">Click</button>
-        </form>
-        <br /><br /><br /><br /><br /><br /><br />
-        Beer Create:<br />
-        <form name="beerCreate" id="createBeer">
-            <input type="hidden" name="createType" value="beer" />
-            <label for="beer_name">Beer Name </label><input type="text" name="beer_name" />
-            <label for="beer_name">Beer Abv </label><input type="text" name="beer_abv" />
-            <select name="beer_brewery_id" class="breweriesSelect">
-                <?php
-                //TODO: Move this in to a module
-                $connect = databaseController::connectToDatabase();
-                $sql = "SELECT * from bbydb.breweries";
-                $result = mysqli_query($connect,$sql);
-                $breweries = mysqli_fetch_all($result);
-                foreach($breweries as $brewery){
-                    echo '<option name="'.$brewery[1].'" value="'.$brewery[0].'">'.$brewery[1].'</option>';
-                }
-                ?>
-            </select>
-            <label for="beer_name">Beer Description </label><textarea name="beer_description"></textarea>
-            <label for="beer_name">Beer Score </label><input type="text" name="beer_score" />
-            <button type="submit">Click</button>
-        </form>
-        <br /><br /><br /><br /><br /><br /><br />
-        Brewery Create:<br />
-        <form name="breweryCreate" id="createBrewery">
-            <input type="hidden" name="createType" value="brewery" />
-            <label for="brewery_name">Brewery Name </label><input type="text" name="brewery_name" />
-            <label for="brewery_address">Brewery Address </label><input type="text" name="brewery_address" />
-            <label for="brewery_city">Brewery City </label><input type="text" name="brewery_city" />
-            <label for="brewery_state">Brewery State </label><input type="text" name="brewery_state" />
-            <label for="brewery_zip">Brewery Zip </label><input type="text" name="brewery_zip" />
-            <label for="brewery_zip">Brewery Description </label><textarea name="brewery_description"></textarea>
-            <button type="submit">Click</button>
-        </form>
-
-        <!--
-        TODO: Name Of List, Size Of List(?), Beers, Breweries, Brewery Locations, Beer Score, Add up Beer Score for Total List Score
-        TODO: Pass off package to PHP
-        -->
-        <br /><br /><br /><br /><br />
-        <form name="listStep1" id="listStep1" method="post" action="./stages/stage1">
-            <input type="hidden" name="createType" value="list"/>
-            <input type="text" name="listName" value="" placeholder="Name Your List"/>
-            <select name="beerSize" class="beerSize">
-                <option>5</option>
-                <option>10</option>
-                <option>15</option>
-                <option>20</option>
-            </select>
-            <button type="submit">Click</button>
-        </form>
-
-        <br /><br /><br /><br /><br /><br />
+<?php  if(!isset($_SESSION["logged_in"])){ ?>
         Login:<br />
         <form name="userLogin" id="userLogin">
             <input type="text" name="username" />
             <input type="text" name="password" />
             <button type="submit">Login</button>
         </form>
+    <a href="/bigbeeryear/user/create">Create An Account</a>
+<?php } else{ ?>
 
-
+        <form id="logout" name="logout">
+            <input type="hidden" name="logout" value="logout" />
+            <input type="submit" name='logout' class="logout" value="Logout"/>
+        </form>
+<?php } ?>
 
     </header>
 
