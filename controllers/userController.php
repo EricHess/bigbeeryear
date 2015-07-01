@@ -18,10 +18,6 @@ if($_POST['logout'] == "logout"){
     session_destroy();
 }
 
-/*TODO: User Login below:
- * Whiteboard out path through site for user
- */
-
 class userController {
 
     public static function userLogin($username, $passwordhash){
@@ -43,8 +39,6 @@ class userController {
         }else{
             return false;
         }
-
-        //TODO: Set a cookie or session cookie or local storage with login status
 
     }
 

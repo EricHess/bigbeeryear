@@ -13,8 +13,8 @@ bigbeeryearLogin.prototype.userLogin = function(element){
         type:'post',
         url:'./controllers/userController.php',
         data:element.serialize(),
-        success: function(data){
-            window.location = '/bigbeeryear'
+        success: function(){
+            window.location = '/bigbeeryear/user/dashboard'
         }
     })
 };
