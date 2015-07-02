@@ -25,6 +25,10 @@ BeerListings.prototype.bindMethods = function(){
         }
     });
 
+    $(".beerListDescription").keyup(function(){
+        $(".listDescription").val($(this).val());
+    });
+
     $('.beerList').change(function(){
         const beerId = $(this).find(":selected").data("beer-id");
         BeerListings.prototype.pushBeerIdsToHiddenField(beerIds, beerId);
@@ -58,7 +62,7 @@ BeerListings.prototype.saveList = function(element){
         url:'/bigbeeryear/controllers/createListController.php',
         data:element.serialize(),
         success: function(data){
-            alert(data);
+            window.location = "/bigbeeryear/user/dashboard"
         }
     })
 };

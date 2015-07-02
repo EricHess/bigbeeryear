@@ -18,6 +18,7 @@ echo 'nuh uh, no post here!';
         <article class="lists">
             <h3><?php echo $_POST['listName']?></h3>
 
+            <textarea class="beerListDescription"></textarea>
 
                 <?php
                 for($i=0;$i < $_POST['beerSize']; $i++){
@@ -42,6 +43,7 @@ echo 'nuh uh, no post here!';
 
                 ?>
             <form name="beerList" id="beerList">
+                    <textarea name="listDescription" class="hidden listDescription"></textarea>
                     <input name="beerListName" class="beerListName" type="hidden" value="<?php echo $_POST['listName']; ?>" />
                     <input name="beerListHidden" class="beerListHidden" type="hidden" />
                     <input class="saveList" id="saveList" name="saveList" type="submit" val="Save List"/>
