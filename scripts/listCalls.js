@@ -37,8 +37,11 @@ BeerListings.prototype.bindMethods = function(){
     $('#beerList').submit(function(){
         BeerListings.prototype.saveList($(this));
         return false;
-    })
+    });
 
+    $(".finishBeer").click(function(){
+        BeerListings.prototype.finishBeer($(this).parents("aside.zebra").data("beer-id"),$(this).parents("aside.zebra").data("list-id"));
+    });
 
 };
 
@@ -63,6 +66,17 @@ BeerListings.prototype.saveList = function(element){
         data:element.serialize(),
         success: function(data){
             window.location = "/bigbeeryear/user/dashboard"
+        }
+    })
+};
+
+BeerListings.prototype.finishBeer = function(beerID, listID){
+    $.ajax({
+        type:'post',
+        url:'/bigbeeryear/controllers/listController.php',
+        data:{"beerID": beerID, "listID":listID},
+        success: function(data){
+            alert(data)
         }
     })
 };

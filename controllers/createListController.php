@@ -20,7 +20,7 @@ class createListController {
         //TODO: GET USER ID AND ATTACH IT
         $listOwner = $_SESSION['userID'][0][0];
         $beerIDs = $createdPackage["beerListHidden"];
-        $sqlStatement = "INSERT INTO `bbydb`.`lists` (`list_id`, `list_owner_id`, `list_name`, `list_beers`, `list_description`) VALUES ('','".$listOwner."','".$listName."','".$beerIDs."','".$listDescription."')";
+        $sqlStatement = "INSERT INTO `bbydb`.`lists` (`list_id`, `list_owner_id`, `list_name`, `list_beers`, `list_description`, `finished_beers`) VALUES ('','".$listOwner."','".$listName."','".$beerIDs."','".$listDescription."', '')";
         mysqli_query($connect,$sqlStatement);
     }
 

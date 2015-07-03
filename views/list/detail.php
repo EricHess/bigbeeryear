@@ -26,6 +26,7 @@ if(isset($detailList)){
     $listScore = userDashboard::getTotalBeerScore($entireList[0][3]);
     $listBeerArray = explode(",",$listBeers);
     ?>
+<script src="/bigbeeryear/scripts/listCalls.js"></script>
 
 <header class="welcome">
     <span>Welcome <?php echo $userName; ?> </span>
@@ -53,7 +54,7 @@ if(isset($detailList)){
                 $beerScore = $beerScore[0][0];
 
                 ?>
-                <aside class="zebra" data-beer-id="<?php echo $beer; ?>">
+                <aside class="zebra" data-beer-id="<?php echo $beer; ?>" data-list-id="<?php echo $detailList;?>">
                 <?php
                 //TODO: NEED TO FIGURE OUT LOGIC FOR COMPLETING LISTS
                 //TODO: NEED TO FIGURE OUT LOGIC FOR SHOWING COMPLETED BEERS OR HIDING THEM
@@ -68,7 +69,7 @@ if(isset($detailList)){
         <?php } ?>
 
     </article>
-
+<script>new BeerListings();</script>
 </section>
 
 
