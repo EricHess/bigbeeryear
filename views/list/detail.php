@@ -52,13 +52,21 @@ if(isset($detailList)){
                 $beerScore = userDashboard::parseBeerScoresFromIDs($beer);
                 $beerScore = $beerScore[0][0];
 
-                echo $beerName."<br />";
-                echo $breweryName."<br />";
-                echo $beerScore."<br />";
+                ?>
+                <aside class="zebra" data-beer-id="<?php echo $beer; ?>">
+                <?php
+                //TODO: NEED TO FIGURE OUT LOGIC FOR COMPLETING LISTS
+                //TODO: NEED TO FIGURE OUT LOGIC FOR SHOWING COMPLETED BEERS OR HIDING THEM
 
+                echo "<span class='beerName'>".$beerName."</span>";
+                echo "<span class='breweryName'>".$breweryName."</span>";
+                echo "<span class='beerScore'>".$beerScore."</span>";
+                echo "<span class='finishBeer'>Mark Complete</span>";
+                ?>
+                </aside>
 
-            }
-        ?>
+        <?php } ?>
+
     </article>
 
 </section>
