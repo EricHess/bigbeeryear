@@ -53,10 +53,19 @@ if(isset($detailList)){
                 $beerScore = userDashboard::parseBeerScoresFromIDs($beer);
                 $beerScore = $beerScore[0][0];
 
+                $finishedBeers = listDetailController::getFinishedList($detailList);
+                $finishedBeers = explode(",", $finishedBeers[0][0]);
+
+                if(in_array($beer, $finishedBeers)){
+                    $finished = "finished";
+                }else{
+                    $finished = "";
+                }
+
                 ?>
-                <aside class="zebra" data-beer-id="<?php echo $beer; ?>" data-list-id="<?php echo $detailList;?>">
+                <aside class="zebra <?php echo $finished; ?>" data-beer-id="<?php echo $beer; ?>" data-list-id="<?php echo $detailList;?>">
                 <?php
-                //TODO: NEED TO FIGURE OUT LOGIC FOR COMPLETING LISTS
+
                 //TODO: NEED TO FIGURE OUT LOGIC FOR SHOWING COMPLETED BEERS OR HIDING THEM
 
                 echo "<span class='beerName'>".$beerName."</span>";

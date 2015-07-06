@@ -17,4 +17,12 @@ class listDetailController {
         return $result;
     }
 
+    public static function getFinishedList($listID){
+        $con = databaseController::connectToDatabase();
+        $sql = "SELECT finished_beers FROM lists where list_id= ".$listID;
+        $result = mysqli_query($con,$sql);
+        $result = mysqli_fetch_all($result);
+        return $result;
+    }
+
 }

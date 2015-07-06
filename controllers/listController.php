@@ -6,7 +6,8 @@
  * Time: 1:35 PM
  */
 
-//include_once("databaseController.php");
+include_once("databaseController.php");
+
 
 $listID = $_POST["listID"];
 $finishedBeer = $_POST["beerID"];

@@ -76,7 +76,7 @@ BeerListings.prototype.finishBeer = function(beerID, listID){
         url:'/bigbeeryear/controllers/listController.php',
         data:{"beerID": beerID, "listID":listID},
         success: function(data){
-            alert(data)
+            $(".beersInList").load();
         }
     })
 };

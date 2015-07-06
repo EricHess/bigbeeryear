@@ -7,7 +7,7 @@
  */
 
 require('createController.php');
-require('listController.php');
+//require('listController.php');
 
 if(!empty($_POST['createType'])){
     $createType = $_POST['createType'];
