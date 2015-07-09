@@ -7,7 +7,6 @@
  */
 
 require('createController.php');
-//require('listController.php');
 
 if(!empty($_POST['createType'])){
     $createType = $_POST['createType'];
@@ -15,8 +14,6 @@ if(!empty($_POST['createType'])){
 }
 
 class databaseController {
-
-    //TODO: Create user profiles and paths
 
     public static function connectToDatabase(){
         $sql = mysqli_connect('localhost','root','','bbyDb');
@@ -47,7 +44,7 @@ class databaseController {
                 createController::breweryCreate($creationPackage);
                 break;
             case('list'):
-                listController::listCreate($creationPackage);
+//                listController::listCreate($creationPackage);
                 break;
         };
     }

@@ -6,8 +6,6 @@
  * Time: 4:05 PM
  */
 
-//TODO: Style.
-
 include("/controllers/userDashboard.php");
 $userDash = userDashboard::getUserFirstAndLastName();
 $userName = $userDash[0][1];
@@ -27,20 +25,26 @@ $userLists = userDashboard::getUserLists();
     <h2>Your Lists:</h2>
     <?php foreach($userLists as $key=>$userList){  ?>
         <article class="listContainer" data-list-id="<?php echo $userList[0]?>">
-            <h3><?php echo $userList[2];?></h3>
-            <h4>List Score: <?php echo userDashboard::getTotalBeerScore($userList[3])?></h4>
-
+            <h3 class="lft"><?php echo $userList[2];?></h3>
+            <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList[3])?></h4>
+            <aside class="clr"></aside>
             <article class="listDescription">
                 <?php echo $userList[4];?>
             </article>
 
             <aside class="listCompletion">
-                <!-- TODO: Need to add beer completion logic to list -->
-                <% LIST COMPLETION PERCENTAGE %>
-                <?php echo (userDashboard::getTotalBeerScore($userList[3]))/3?>
+                <!-- TODO: Need to add progress bar -->
+                List Completion: <?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%
+                <aside class="completionBar">
+                    <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%;"></aside>
+                </aside>
             </aside>
 
         </article>
     <?php }; ?>
 
 </section>
+
+<script>
+    new BeerListings();
+</script>

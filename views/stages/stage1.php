@@ -22,7 +22,6 @@ echo 'nuh uh, no post here!';
 
                 <?php
                 for($i=0;$i < $_POST['beerSize']; $i++){
-                    //TODO: Bring up modal when clicked with filtering.
                 echo '<li>';
                     echo 'Breweries: <select name="breweryList" class="breweryList">
                 <option value="">Select One</option>';

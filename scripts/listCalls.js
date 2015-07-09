@@ -40,14 +40,29 @@ BeerListings.prototype.bindMethods = function(){
     });
 
     $(".finishBeer").click(function(){
-        BeerListings.prototype.finishBeer($(this).parents("aside.zebra").data("beer-id"),$(this).parents("aside.zebra").data("list-id"));
-    });
+        //TODO: Disable click functionality after it is clicked once.
+        var finishedCheck = $(this).parents("aside.zebra").hasClass("finished");
+        if(!finishedCheck){
+        BeerListings.prototype.finishBeer($(this).parents("aside.zebra").data("beer-id"),$(this).parents("aside.zebra").data("list-id"), $(this));
+            }else{
+            alert('already clicked finished');
+        }
+        });
 
+    $(".listContainer").click(function(){
+        var goto = $(this).data("list-id");
+        window.location = "/bigbeeryear/list/detail?detailList="+goto;
+    })
 };
 
+
 BeerListings.prototype.pushBeerIdsToHiddenField = function(beerIds, beerId){
-    beerIds.push(beerId);
-    $('.beerListHidden').val(beerIds);
+    if(beerIds.indexOf(beerId) > -1){
+        alert('in array already')
+    }else{
+        beerIds.push(beerId);
+        $('.beerListHidden').val(beerIds);
+    }
 };
 
 BeerListings.prototype.filterOnBreweries = function(breweryId) {
@@ -70,13 +85,13 @@ BeerListings.prototype.saveList = function(element){
     })
 };
 
-BeerListings.prototype.finishBeer = function(beerID, listID){
+BeerListings.prototype.finishBeer = function(beerID, listID, element){
     $.ajax({
         type:'post',
         url:'/bigbeeryear/controllers/listController.php',
         data:{"beerID": beerID, "listID":listID},
-        success: function(data){
-            $(".beersInList").load();
+        success: function(){
+            $(element).parents("aside.zebra").addClass("finished");
         }
     })
 };

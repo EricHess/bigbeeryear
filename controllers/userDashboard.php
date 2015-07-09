@@ -20,7 +20,6 @@ class userDashboard {
 
     public static function getUserLists(){
         $con = databaseController::connectToDatabase();
-        //TODO: Need to associate list_owner_id to userID -- should be simple now.
         $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"][0][0]."'";
         $result = mysqli_query($con,$sql);
         $result = mysqli_fetch_all($result);
@@ -29,7 +28,6 @@ class userDashboard {
 
     public static function parseBeerNamesFromIDs($id){
         $con = databaseController::connectToDatabase();
-        //TODO: Need to associate list_owner_id to userID -- should be simple now.
         $sql = "SELECT * from `beers` where beer_id = '".$id."'";
         $result = mysqli_query($con,$sql);
         $result = mysqli_fetch_all($result);
@@ -38,7 +36,6 @@ class userDashboard {
 
     public static function parseBreweryNamesFromIDs($id){
         $con = databaseController::connectToDatabase();
-        //TODO: Need to associate list_owner_id to userID -- should be simple now.
         $sql = "SELECT beer_brewery_id from `beers` where beer_id = '".$id."'";
         $result = mysqli_query($con,$sql);
         $result = mysqli_fetch_all($result);
@@ -60,6 +57,24 @@ class userDashboard {
 
     public static function getTotalBeerScore($addArray){
         return array_sum(explode(",",$addArray));
+    }
+
+    public static function getCompletionPercentage($listID){
+        //TODO: Use score instead of just numbers?
+        $con = databaseController::connectToDatabase();
+        $sql = "SELECT list_beers from lists where list_id = '".$listID."'";
+        $result = mysqli_query($con,$sql);
+        $result = mysqli_fetch_all($result);
+        $totalBeerLength = explode(",", $result[0][0]);
+        $totalBeerLength = count($totalBeerLength);
+
+        $sql = "SELECT finished_beers from lists where list_id = '".$listID."'";
+        $result = mysqli_query($con,$sql);
+        $result = mysqli_fetch_all($result);
+        $finishedBeerLength = explode(",", $result[0][0]);
+        $finishedBeerLength = count($finishedBeerLength);
+
+        echo (($finishedBeerLength - 1) / $totalBeerLength)*100;
     }
 
 }

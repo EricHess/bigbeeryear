@@ -6,11 +6,10 @@
  * Time: 4:19 PM
  */
 
-class listDetailController {
+class listDetailController extends userDashboard {
 
     public static function getSpecificList($listID){
         $con = databaseController::connectToDatabase();
-        //TODO: Need to NOT show beers that are listed in the finished_beers column
         $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"][0][0]."' and list_id = '".$listID."'";
         $result = mysqli_query($con,$sql);
         $result = mysqli_fetch_all($result);

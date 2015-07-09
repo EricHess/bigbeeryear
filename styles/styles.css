@@ -1,0 +1,46 @@
+/*
+*Styles for User Dashboard
+*/
+
+/**
+*Styles for List Container
+**/
+.listContainer{
+    border:1px dotted #000;
+    padding:2%;
+    width:92%;
+    margin: 10px auto;
+}
+
+.listContainer h3{
+    font-size:2em;
+    font-weight:bolder;
+    color:#BADA55;
+}
+
+.listContainer h4{
+    font-size:1.5em;
+    font-weight:bolder;
+    color: #ff0000;
+    padding-top:.1em;
+}
+
+.listDescription{
+    margin:5% 0;
+}
+
+/**
+*Styles for Progress Bar
+**/
+aside.completionBar{
+    height:25px;
+    width:80%;
+    border:1px solid #000;
+    margin-top:5%;
+}
+
+aside.completionPercentage{
+    height:25px;
+    background:orange;
+}
+

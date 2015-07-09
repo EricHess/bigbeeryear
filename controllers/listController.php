@@ -6,7 +6,7 @@
  * Time: 1:35 PM
  */
 
-include_once("databaseController.php");
+
 
 
 $listID = $_POST["listID"];
@@ -21,7 +21,6 @@ class listController {
         $sql = "UPDATE lists";
         $sql .= " SET finished_beers = concat(finished_beers,',".$finishedBeer."')";
         $sql .= " WHERE list_id = ".$listID;
-        echo $sql;
         mysqli_query($con, $sql);
 
     }

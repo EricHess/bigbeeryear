@@ -10,18 +10,17 @@ require('./controllers/urlController.php');
 require('./controllers/pageController.php');
 require('./controllers/databaseController.php');
 
-//TODO: Figure out login..
-//TODO: Figure out sessions..
-
 session_start();
 ?>
-
+<!DOCTYPE html>
 <html>
     <head>
-    <script src="/bigbeeryear/scripts/jquery.js"></script>
-    <script src="/bigbeeryear/scripts/creationCalls.js"></script>
-    <script src="/bigbeeryear/scripts/loginCalls.js"></script>
-    <script src="/bigbeeryear/scripts/listCalls.js"></script>
+        <link rel="stylesheet" href="/bigbeeryear/styles/base.css"/>
+
+        <script src="/bigbeeryear/scripts/jquery.js"></script>
+        <script src="/bigbeeryear/scripts/creationCalls.js"></script>
+        <script src="/bigbeeryear/scripts/loginCalls.js"></script>
+        <script src="/bigbeeryear/scripts/listCalls.js"></script>
     </head>
 
     <body>
@@ -58,6 +57,8 @@ session_start();
                 include pageController::createPath().'';
             }
         ?>
+
+
     </body>
 
 </html>

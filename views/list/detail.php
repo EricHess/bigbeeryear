@@ -6,8 +6,6 @@
  * Time: 4:13 PM
  */
 
-//TODO: Figure out completion
-
 include("/controllers/userDashboard.php");
 include("/controllers/listDetailController.php");
 $userDash = userDashboard::getUserFirstAndLastName();
@@ -27,7 +25,9 @@ if(isset($detailList)){
     $listBeerArray = explode(",",$listBeers);
     ?>
 <script src="/bigbeeryear/scripts/listCalls.js"></script>
-
+<style>
+    .finished{text-decoration:line-through}
+</style>
 <header class="welcome">
     <span>Welcome <?php echo $userName; ?> </span>
     <span><a href="#">+ Your Lists</a></span>
@@ -38,10 +38,11 @@ if(isset($detailList)){
     <span><?php echo $listScore; ?></span>
     <p><?php echo $listDescription; ?></p>
 
-    <p>List Completion: <% LIST COMPLETION %></p>
+    <!-- TODO: Need to add progress bar -->
+    <p>List Completion: <?php echo userDashboard::getCompletionPercentage($detailList); ?></p>
 
     <article class="beersInList">
-        <?php //TODO: Parse list of beerIDs to get the actual Beer Names, Brewery, Score and foreach them
+        <?php
             foreach($listBeerArray as $beer){
 
                 $beerName = userDashboard::parseBeerNamesFromIDs($beer);
@@ -65,8 +66,6 @@ if(isset($detailList)){
                 ?>
                 <aside class="zebra <?php echo $finished; ?>" data-beer-id="<?php echo $beer; ?>" data-list-id="<?php echo $detailList;?>">
                 <?php
-
-                //TODO: NEED TO FIGURE OUT LOGIC FOR SHOWING COMPLETED BEERS OR HIDING THEM
 
                 echo "<span class='beerName'>".$beerName."</span>";
                 echo "<span class='breweryName'>".$breweryName."</span>";
