@@ -49,6 +49,14 @@ session_start();
 
     </header>
 
+    <header class="mainHeader">
+        <nav class="mainMenu">
+            <nav itemscope="nav_button"><a href="/bigbeeryear">Home</a></nav>
+            <nav itemscope="nav_button"><a href="/bigbeeryear/about-big-beer-year">About</a></nav>
+            <nav itemscope="nav_button"><a class="startNow" href="/bigbeeryear">Start Now!</a></nav>
+        </nav>
+    </header>
+
         <?php
             //Include the necessary page from the path
             if(pageController::createPath() === false){

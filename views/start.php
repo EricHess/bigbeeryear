@@ -1,4 +1,4 @@
-<header>
+<header class="heroTitle">
     <h2>Have A Year!</h2>
 </header>
 
