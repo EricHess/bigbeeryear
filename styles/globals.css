@@ -1,0 +1,17 @@
+h1{}
+
+h2{
+    font-size: 1.75em;
+    font-weight:bolder;
+}
+
+h3{
+    font-size:1.5em;
+    font-weight:bolder;
+}
+
+h4{}
+
+p{
+    margin:1em 0;
+}

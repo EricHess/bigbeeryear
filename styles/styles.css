@@ -1,3 +1,39 @@
+/**
+*Styles for Header
+**/
+#userLogin{
+    padding: 2%;
+    border-bottom: 1px solid;
+    text-align: center;
+    margin-top: -45px;
+}
+
+#userLogin.scrolledDown{
+    /*TODO: Create animation effect css3*/
+    margin-top: 0px;
+}
+
+/*@keyframes slidedown {*/
+    /*0% {*/
+        /*margin-top: -45px;*/
+    /*}*/
+    /*100% {*/
+        /*margin-top: 0;*/
+    /*}*/
+/*}*/
+
+.expandLogin{
+    padding-top: 10px;
+    background: red;
+    width: 12%;
+    padding-bottom: 10px;
+    text-align: center;
+    color: white;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
+
 /*
 *Styles for User Dashboard
 */
@@ -5,11 +41,21 @@
 /**
 *Styles for List Container
 **/
+
 .listContainer{
-    border:1px dotted #000;
     padding:2%;
     width:92%;
     margin: 10px auto;
+}
+
+.dashboardList.listContainer{
+    border:1px dotted #000;
+    cursor: pointer;
+}
+
+.dashboardList.listContainer:hover{
+    border-color:red;
+    background:#999;
 }
 
 .listContainer h3{
@@ -44,3 +90,36 @@ aside.completionPercentage{
     background:orange;
 }
 
+/**
+*Styles for Zebra class
+**/
+
+.zebra{
+    padding:10px 0px;
+}
+
+.zebra:nth-child(odd){
+    background-color:#999;
+}
+
+/**
+*Page Styles -- List Detail
+**/
+
+.beersInList{
+    margin-top:5%;
+}
+
+.beersInList .zebra {
+    display:flex;
+    padding:10px 2%;
+}
+
+.beersInList .zebra span{
+    flex:1;
+    font-size:80%;
+}
+
+.beersInList .zebra span.beerScore{
+    text-align:center;
+}

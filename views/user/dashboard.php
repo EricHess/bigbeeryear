@@ -24,7 +24,7 @@ $userLists = userDashboard::getUserLists();
 
     <h2>Your Lists:</h2>
     <?php foreach($userLists as $key=>$userList){  ?>
-        <article class="listContainer" data-list-id="<?php echo $userList[0]?>">
+        <article class="dashboardList listContainer" data-list-id="<?php echo $userList[0]?>">
             <h3 class="lft"><?php echo $userList[2];?></h3>
             <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList[3])?></h4>
             <aside class="clr"></aside>
@@ -33,7 +33,6 @@ $userLists = userDashboard::getUserLists();
             </article>
 
             <aside class="listCompletion">
-                <!-- TODO: Need to add progress bar -->
                 List Completion: <?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%
                 <aside class="completionBar">
                     <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%;"></aside>
@@ -42,6 +41,8 @@ $userLists = userDashboard::getUserLists();
 
         </article>
     <?php }; ?>
+
+    <a href="/bigbeeryear/create/list">+ Create New List</a>
 
 </section>
 

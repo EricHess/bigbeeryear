@@ -31,13 +31,14 @@ session_start();
 ?>
     <header>
 <?php  if(!isset($_SESSION["logged_in"])){ ?>
-        Login:<br />
+
         <form name="userLogin" id="userLogin">
             <input type="text" name="username" />
             <input type="text" name="password" />
             <button type="submit">Login</button>
         </form>
-    <a href="/bigbeeryear/user/create">Create An Account</a>
+        <nav class="expandLogin">Login</nav>
+
 <?php } else{ ?>
 
         <form id="logout" name="logout">

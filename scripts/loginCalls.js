@@ -40,4 +40,9 @@ $(document).ready(function(){
         bigbeeryearLogin.prototype.userLogout($(this));
         return false;
     });
+
+    $(".expandLogin").click(function(){
+        $("#userLogin").toggleClass("scrolledDown");
+    });
+
 });

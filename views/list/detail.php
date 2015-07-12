@@ -33,15 +33,21 @@ if(isset($detailList)){
     <span><a href="#">+ Your Lists</a></span>
 </header>
 
-<section class="listDetail">
-    <h2><?php echo $listName; ?></h2>
-    <span><?php echo $listScore; ?></span>
-    <p><?php echo $listDescription; ?></p>
+<section class="listDetail listContainer">
+    <h3 class="lft"><?php echo $listName; ?></h3>
+    <h4 class="rt">List Score: <?php echo $listScore; ?></h4>
+    <div class="clr"></div>
+    <article class="listDescription"><?php echo $listDescription; ?></article>
 
-    <!-- TODO: Need to add progress bar -->
-    <p>List Completion: <?php echo userDashboard::getCompletionPercentage($detailList); ?></p>
+    <aside class="listCompletion">
+        List Completion: <?php echo userDashboard::getCompletionPercentage($detailList, "",""); ?>%
+        <aside class="completionBar">
+            <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($detailList, "",""); ?>%;"></aside>
+        </aside>
+    </aside>
 
     <article class="beersInList">
+        <!-- TODO: Create Title Bar -->
         <?php
             foreach($listBeerArray as $beer){
 
@@ -78,6 +84,7 @@ if(isset($detailList)){
 
     </article>
 <script>new BeerListings();</script>
+    <a href="/bigbeeryear/user/dashboard">< Back To Dashboard</a>
 </section>
 
 

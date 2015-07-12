@@ -49,7 +49,7 @@ BeerListings.prototype.bindMethods = function(){
         }
         });
 
-    $(".listContainer").click(function(){
+    $(".dashboardList.listContainer").click(function(){
         var goto = $(this).data("list-id");
         window.location = "/bigbeeryear/list/detail?detailList="+goto;
     })
