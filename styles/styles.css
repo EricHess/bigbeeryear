@@ -1,6 +1,16 @@
 /**
 *Styles for Header
 **/
+
+h1{
+    text-indent: -99999em;
+    background: url("/bigbeeryear/images/logoSmall.png") no-repeat 5px 5px;
+    height: 124px;
+    background-size: 65%;
+    float: left;
+    width: 25px;
+}
+
 #userLogin{
     padding: 2%;
     border-bottom: 1px solid;
@@ -34,6 +44,40 @@
     cursor: pointer;
 }
 
+nav.mainMenu{
+    display:flex;
+}
+
+nav.mainMenu nav{
+    margin-right:20%;
+    padding:1px 0;
+    margin-top:5px;
+}
+
+nav.mainMenu nav a{
+    font-size:1em;
+    text-decoration: none;
+}
+
+nav.mainMenu nav:nth-child(2){
+    flex-grow:2;
+}
+
+nav.mainMenu nav:last-child{
+    border:1px solid #999;
+    background:#bada55;
+    border-radius:2px;
+    margin:5px 2% 5px 0
+}
+
+nav.mainMenu nav:last-child a{
+    color:#fff;
+    padding:10px;
+}
+
+header.mainHeader{
+}
+
 /**
 *Styles for Home Page
 */
@@ -46,6 +90,7 @@ header.heroTitle{
     height:40vh;
     max-height:400px;
 }
+
 
 /*
 *Styles for User Dashboard

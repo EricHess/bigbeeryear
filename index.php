@@ -29,7 +29,7 @@ session_start();
         $userID = $_SESSION["userID"][0][0];
     };
 ?>
-    <header>
+<!--    <header>
 <?php  if(!isset($_SESSION["logged_in"])){ ?>
 
         <form name="userLogin" id="userLogin">
@@ -48,8 +48,9 @@ session_start();
 <?php } ?>
 
     </header>
-
+-->
     <header class="mainHeader">
+        <h1>Big Beer Year</h1>
         <nav class="mainMenu">
             <nav itemscope="nav_button"><a href="/bigbeeryear">Home</a></nav>
             <nav itemscope="nav_button"><a href="/bigbeeryear/about-big-beer-year">About</a></nav>
