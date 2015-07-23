@@ -29,7 +29,7 @@ session_start();
         $userID = $_SESSION["userID"][0][0];
     };
 ?>
-<!--    <header>
+    <header>
 <?php  if(!isset($_SESSION["logged_in"])){ ?>
 
         <form name="userLogin" id="userLogin">
@@ -37,8 +37,7 @@ session_start();
             <input type="text" name="password" />
             <button type="submit">Login</button>
         </form>
-        <nav class="expandLogin">Login</nav>
-
+        <!--
 <?php } else{ ?>
 
         <form id="logout" name="logout">
@@ -46,17 +45,21 @@ session_start();
             <input type="submit" name='logout' class="logout" value="Logout"/>
         </form>
 <?php } ?>
-
-    </header>
 -->
+    </header>
+
     <header class="mainHeader">
         <h1>Big Beer Year</h1>
         <nav class="mainMenu">
             <nav itemscope="nav_button"><a href="/bigbeeryear">Home</a></nav>
             <nav itemscope="nav_button"><a href="/bigbeeryear/about-big-beer-year">About</a></nav>
-            <nav itemscope="nav_button"><a class="startNow" href="/bigbeeryear">Start Now!</a></nav>
+            <nav itemscope="nav_button"><a href="/bigbeeryear/faqs">FAQs</a></nav>
+            <!-- TODO: Maybe move these down? UX problem of an extra click to begin.. -->
+            <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/bigbeeryear/user/create">Start!</a></nav>
+            <nav itemscope="nav_button" class="expandLgn"><a class="expandLogin" href="#">Login</a></nav>
         </nav>
     </header>
+
 
         <?php
             //Include the necessary page from the path

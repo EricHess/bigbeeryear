@@ -7,12 +7,29 @@
  */
 
 ?>
+<section class="createUser">
+    <h2>Create A User</h2>
 
-User Create:<br />
-<form name="userCreate" id="createUser">
-    <input type="hidden" name="createType" value="user" />
-    <input type="text" name="username" />
-    <input type="text" name="email" />
-    <input type="text" name="password" />
-    <button type="submit">Click</button>
-</form>
+    <form name="userCreate" id="createUser">
+        <input type="hidden" name="createType" value="user" />
+
+        <article class="name">
+            <!-- TODO: Make a field for first name, last name as well -->
+            <label for="username">Name: </label>
+            <input id="username" type="text" name="username" />
+        </article>
+
+        <article class="email">
+            <label for="email">Email: </label>
+            <input id="email" type="text" name="email" />
+        </article>
+
+        <article class="password">
+            <label for="password">Password: </label>
+            <input id="password" type="text" name="password" />
+        </article>
+
+        <!-- TODO: Redirect to user dashboard after creation -->
+        <button type="submit">Click</button>
+    </form>
+</section>
