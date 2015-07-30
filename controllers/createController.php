@@ -13,8 +13,10 @@ class createController {
         $connect = databaseController::connectToDatabase();
         $username = $createPackage['username'];
         $email = $createPackage['email'];
+        $fname = $createPackage['fname'];
+        $lname = $createPackage['lname'];
         $password = md5($createPackage['password']);
-        $sqlStatement = "INSERT INTO `bbydb`.`users` (`uid`, `name`, `email`, `password`) VALUES ('','".$username."','".$email."','".$password."')";
+        $sqlStatement = "INSERT INTO `bbydb`.`users` (`uid`, `name`, `email`, `password`, `fname`, `lname`) VALUES ('','".$username."','".$email."','".$password."','".$fname."','".$lname."')";
         mysqli_query($connect,$sqlStatement);
     }
 

@@ -37,7 +37,7 @@ session_start();
             <input type="text" name="password" />
             <button type="submit">Login</button>
         </form>
-        <!--
+
 <?php } else{ ?>
 
         <form id="logout" name="logout">
@@ -45,7 +45,7 @@ session_start();
             <input type="submit" name='logout' class="logout" value="Logout"/>
         </form>
 <?php } ?>
--->
+
     </header>
 
     <header class="mainHeader">

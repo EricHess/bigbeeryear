@@ -13,9 +13,18 @@
     <form name="userCreate" id="createUser">
         <input type="hidden" name="createType" value="user" />
 
-        <article class="name">
-            <!-- TODO: Make a field for first name, last name as well -->
-            <label for="username">Name: </label>
+        <article class="fname">
+            <label for="fname">First Name: </label>
+            <input id="fname" type="text" name="fname" />
+        </article>
+
+        <article class="lname">
+            <label for="lname">Last Name: </label>
+            <input id="lname" type="text" name="lname" />
+        </article>
+
+        <article class="username">
+            <label for="username">Username: </label>
             <input id="username" type="text" name="username" />
         </article>
 

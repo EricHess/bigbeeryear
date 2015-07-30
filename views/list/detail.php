@@ -41,7 +41,6 @@ if(isset($detailList)){
 
     <aside class="listCompletion">
         List Completion: <?php echo userDashboard::getCompletionPercentage($detailList, "",""); ?>%
-        <!-- TODO: Completion percentage should be cumulative, not just count.-->
         <aside class="completionBar">
             <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($detailList, "",""); ?>%;"></aside>
         </aside>
@@ -64,7 +63,6 @@ if(isset($detailList)){
                 $finishedBeers = listDetailController::getFinishedList($detailList);
                 $finishedBeers = explode(",", $finishedBeers[0][0]);
 
-                //TODO: Need to get the scores of the finished and use that instead of count for the completion (or both?)
 
                 if(in_array($beer, $finishedBeers)){
                     $finished = "finished";

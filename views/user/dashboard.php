@@ -9,6 +9,8 @@
 include("/controllers/userDashboard.php");
 $userDash = userDashboard::getUserFirstAndLastName();
 $userName = $userDash[0][1];
+$firstName = $userDash[0][4];
+$lastName = $userDash[0][5];
 $userLists = userDashboard::getUserLists();
 
 ?>
@@ -18,7 +20,7 @@ $userLists = userDashboard::getUserLists();
 <section class="userDashboard">
 
     <header class="welcome">
-        <span>Welcome <?php echo $userName; ?> </span>
+        <span>Welcome <?php echo $firstName." ".$lastName; ?> </span>
         <span><a href="#">+ Your Lists</a></span>
     </header>
 

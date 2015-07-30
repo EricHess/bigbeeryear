@@ -40,7 +40,6 @@ BeerListings.prototype.bindMethods = function(){
     });
 
     $(".finishBeer").click(function(){
-        //TODO: Disable click functionality after it is clicked once.
         var finishedCheck = $(this).parents("aside.zebra").hasClass("finished");
         if(!finishedCheck){
         BeerListings.prototype.finishBeer($(this).parents("aside.zebra").data("beer-id"),$(this).parents("aside.zebra").data("list-id"), $(this));

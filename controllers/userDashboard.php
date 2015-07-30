@@ -56,25 +56,62 @@ class userDashboard {
     }
 
     public static function getTotalBeerScore($addArray){
-        return array_sum(explode(",",$addArray));
+        $addArray = explode(",", $addArray);
+        $parsedBeerScore = [];
+        $parsedBeerScoreAdd = [];
+
+        foreach ($addArray as $finishedBeer) {
+            array_push($parsedBeerScore,userDashboard::parseBeerScoresFromIDs($finishedBeer));
+        }
+
+        foreach($parsedBeerScore as $scores){
+            array_push($parsedBeerScoreAdd, $scores[0][0]);
+        }
+
+        return array_sum($parsedBeerScoreAdd);
     }
 
-    public static function getCompletionPercentage($listID){
-        //TODO: Use score instead of just numbers?
+    public static function getCompletionPercentage($listID)
+    {
+
+        //TODO: Clean this up.. Maybe two separate calls? Can I use userDash::getTotalBeerScore ??
+
         $con = databaseController::connectToDatabase();
-        $sql = "SELECT list_beers from lists where list_id = '".$listID."'";
-        $result = mysqli_query($con,$sql);
+        $sql = "SELECT list_beers from lists where list_id = '" . $listID . "'";
+        $result = mysqli_query($con, $sql);
         $result = mysqli_fetch_all($result);
         $totalBeerLength = explode(",", $result[0][0]);
-        $totalBeerLength = count($totalBeerLength);
+        $totalBeerScore=[];
+        $totalBeerScoreAdd=[];
 
-        $sql = "SELECT finished_beers from lists where list_id = '".$listID."'";
-        $result = mysqli_query($con,$sql);
+        foreach ($totalBeerLength as $finishedBeer) {
+            array_push($totalBeerScore,userDashboard::parseBeerScoresFromIDs($finishedBeer));
+        }
+
+        foreach($totalBeerScore as $scores){
+            if(isset($scores[0])){
+                array_push($totalBeerScoreAdd, $scores[0][0]);
+            }
+        }
+
+
+        $sql = "SELECT finished_beers from lists where list_id = '" . $listID . "'";
+        $result = mysqli_query($con, $sql);
         $result = mysqli_fetch_all($result);
         $finishedBeerLength = explode(",", $result[0][0]);
-        $finishedBeerLength = count($finishedBeerLength);
+        $finishedBeerScore = [];
+        $finishedBeerScoreAdd = [];
+        foreach ($finishedBeerLength as $finishedBeer) {
+            array_push($finishedBeerScore,userDashboard::parseBeerScoresFromIDs($finishedBeer));
+        }
 
-        echo (($finishedBeerLength - 1) / $totalBeerLength)*100;
+        foreach($finishedBeerScore as $scores){
+            if(isset($scores[0])){
+                array_push($finishedBeerScoreAdd, $scores[0][0]);
+            }
+        }
+
+        echo round((array_sum($finishedBeerScoreAdd)/array_sum($totalBeerScoreAdd))*100);
     }
 
 }
