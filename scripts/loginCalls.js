@@ -45,4 +45,8 @@ $(document).ready(function(){
         $("#userLogin").toggleClass("scrolledDown");
     });
 
+    $(".logmeout").click(function(){
+       $("form#logout").submit();
+    });
+
 });

@@ -72,6 +72,12 @@ nav.mainMenu nav.startBtn, nav.mainMenu nav.expandLgn{
     margin-top:10px;
 }
 
+nav.mainMenu nav.startBtn{
+    margin-right: 5px;
+    background: rgb(255,69,0);
+}
+
+
 nav.mainMenu nav.startBtn a, nav.mainMenu nav.expandLgn a{
     color:#fff;
     text-transform:capitalize;
@@ -125,26 +131,33 @@ header.heroTitle h2{
 }
 
 .dashboardList.listContainer{
-    border:1px dotted #000;
+    border:1px solid #999;
     cursor: pointer;
+    border-radius:5px;
 }
 
 .dashboardList.listContainer:hover{
     border-color:red;
-    background:#999;
+    background: #d1d1d1;
+}
+
+.dashboardList .listTitles{
+    border-bottom: 1px solid #777;
+    padding-bottom: 10px;
+    display: flex;
 }
 
 .listContainer h3{
-    font-size:2em;
-    font-weight:bolder;
-    color:#BADA55;
+    font-size: 1em;
+    font-weight: bolder;
+    color: #BADA55;
+    flex-grow: 1;
 }
 
 .listContainer h4{
-    font-size:1.5em;
+    font-size:1em;
     font-weight:bolder;
     color: #ff0000;
-    padding-top:.1em;
 }
 
 .listDescription{

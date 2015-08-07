@@ -38,12 +38,6 @@ session_start();
             <button type="submit">Login</button>
         </form>
 
-<?php } else{ ?>
-
-        <form id="logout" name="logout">
-            <input type="hidden" name="logout" value="logout" />
-            <input type="submit" name='logout' class="logout" value="Logout"/>
-        </form>
 <?php } ?>
 
     </header>
@@ -54,9 +48,14 @@ session_start();
             <nav itemscope="nav_button"><a href="/bigbeeryear">Home</a></nav>
             <nav itemscope="nav_button"><a href="/bigbeeryear/about-big-beer-year">About</a></nav>
             <nav itemscope="nav_button"><a href="/bigbeeryear/faqs">FAQs</a></nav>
-            <!-- TODO: Maybe move these down? UX problem of an extra click to begin.. -->
+            <!-- TODO: If logged in.. Don't show create user link (Dashboard), Show logout instead of Login -->
+            <?php  if(!isset($_SESSION["logged_in"])){ ?>
             <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/bigbeeryear/user/create">Start!</a></nav>
             <nav itemscope="nav_button" class="expandLgn"><a class="expandLogin" href="#">Login</a></nav>
+            <?php } else{ ?>
+                <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/bigbeeryear/user/dashboard">Lists</a></nav>
+                <nav itemscope="nav_button" class="expandLgn"><a class="logmeout" href="#">Logout</a></nav>
+            <?php }; ?>
         </nav>
     </header>
 
@@ -71,7 +70,10 @@ session_start();
             }
         ?>
 
-
+<form class="hidden" id="logout" name="logout">
+    <input type="hidden" name="logout" value="logout" />
+    <input type="submit" name='logout' class="logout" value="Logout"/>
+</form>
     </body>
 
 </html>

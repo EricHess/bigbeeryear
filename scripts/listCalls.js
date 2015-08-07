@@ -52,6 +52,13 @@ BeerListings.prototype.bindMethods = function(){
         var goto = $(this).data("list-id");
         window.location = "/bigbeeryear/list/detail?detailList="+goto;
     })
+
+    $(".completeList").click(function(){
+        BeerListings.prototype.completeList({
+            "type":"complete",
+            "listId": $(this).data("list-id")
+        })
+    });
 };
 
 
@@ -78,6 +85,17 @@ BeerListings.prototype.saveList = function(element){
         type:'post',
         url:'/bigbeeryear/controllers/createListController.php',
         data:element.serialize(),
+        success: function(data){
+            window.location = "/bigbeeryear/user/dashboard"
+        }
+    })
+};
+
+BeerListings.prototype.completeList = function(element){
+    $.ajax({
+        type:'post',
+        url:'/bigbeeryear/controllers/listController.php',
+        data:element,
         success: function(data){
             window.location = "/bigbeeryear/user/dashboard"
         }

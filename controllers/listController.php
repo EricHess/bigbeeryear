@@ -7,12 +7,14 @@
  */
 
 
-
-
 $listID = $_POST["listID"];
 $finishedBeer = $_POST["beerID"];
 
-listController::finishBeer($listID, $finishedBeer);
+if(isset($_POST["listID"]) && isset($_POST["beerID"])){
+    listController::finishBeer($listID, $finishedBeer);
+}else if($_POST["type"] == "complete" && isset($_POST["listId"])){
+    listController::completeList($_POST["listId"]);
+}
 
 class listController {
 
@@ -20,6 +22,16 @@ class listController {
         $con = mysqli_connect('localhost','root','','bbyDb');
         $sql = "UPDATE lists";
         $sql .= " SET finished_beers = concat(finished_beers,',".$finishedBeer."')";
+        $sql .= " WHERE list_id = ".$listID;
+        mysqli_query($con, $sql);
+
+    }
+
+
+    public static function completeList($listID){
+        $con = mysqli_connect('localhost','root','','bbyDb');
+        $sql = "UPDATE lists";
+        $sql .= " SET list_complete = 1";
         $sql .= " WHERE list_id = ".$listID;
         mysqli_query($con, $sql);
 
