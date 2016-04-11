@@ -16,7 +16,7 @@ if(!empty($_POST['createType'])){
 class databaseController {
 
     public static function connectToDatabase(){
-        $sql = mysqli_connect('localhost','root','','bbyDb');
+        $sql = mysqli_connect('localhost','ehess84_bbydb','135Eh183!','ehess84_bbydb');
         return $sql;
     }
 
@@ -51,7 +51,7 @@ class databaseController {
 
     public static function getBeerList(){
         $connect = databaseController::connectToDatabase();
-        $sql = "SELECT * from bbydb.beers";
+        $sql = "SELECT * from ehess84_bbydb.beers";
         $query = mysqli_query($connect, $sql);
         $result = mysqli_fetch_all($query);
         return $result;
@@ -59,7 +59,7 @@ class databaseController {
 
     public static function getBreweryList(){
         $connect = databaseController::connectToDatabase();
-        $sql = "SELECT * from bbydb.breweries";
+        $sql = "SELECT * from ehess84_bbydb.breweries";
         $query = mysqli_query($connect, $sql);
         $result = mysqli_fetch_all($query);
         return $result;

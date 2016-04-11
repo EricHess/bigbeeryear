@@ -16,7 +16,7 @@ class createController {
         $fname = $createPackage['fname'];
         $lname = $createPackage['lname'];
         $password = md5($createPackage['password']);
-        $sqlStatement = "INSERT INTO `bbydb`.`users` (`uid`, `name`, `email`, `password`, `fname`, `lname`) VALUES ('','".$username."','".$email."','".$password."','".$fname."','".$lname."')";
+        $sqlStatement = "INSERT INTO `ehess84_bbydb`.`users` (`uid`, `name`, `email`, `password`, `fname`, `lname`) VALUES ('','".$username."','".$email."','".$password."','".$fname."','".$lname."')";
         mysqli_query($connect,$sqlStatement);
     }
 
@@ -27,7 +27,7 @@ class createController {
         $beerBreweryId = $createPackage['beer_brewery_id'];
         $beerDescription = $createPackage['beer_description'];
         $beerScore = $createPackage['beer_score'];
-        $sqlStatement = "INSERT INTO `bbydb`.`beers` (`beer_id`, `beer_name`, `beer_abv`, `beer_brewery_id`, `beer_description`, `beer_score`) VALUES ('','".$beerName."','".$beerAbv."','".$beerBreweryId."','".$beerDescription."','".$beerScore."')";
+        $sqlStatement = "INSERT INTO `ehess84_bbydb`.`beers` (`beer_id`, `beer_name`, `beer_abv`, `beer_brewery_id`, `beer_description`, `beer_score`) VALUES ('','".$beerName."','".$beerAbv."','".$beerBreweryId."','".$beerDescription."','".$beerScore."')";
         echo $sqlStatement;
         mysqli_query($connect,$sqlStatement);
     }
@@ -43,7 +43,7 @@ class createController {
         $breweryLat ='';
         $breweryLong='';
         $breweryDescription = $createPackage['brewery_description'];
-        $sqlStatement = "INSERT INTO `bbydb`.`breweries` (`brewery_id`, `brewery_name`, `brewery_address`, `brewery_city`, `brewery_state`, `brewery_zip`, `brewery_lat`, `brewery_long`, `brewery_description`) VALUES ('','".$breweryName."','".$breweryAddress."','".$breweryCity."','".$breweryState."', '".$breweryZip."','".$breweryLat."','".$breweryLong."','".$breweryDescription."')";
+        $sqlStatement = "INSERT INTO `ehess84_bbydb`.`breweries` (`brewery_id`, `brewery_name`, `brewery_address`, `brewery_city`, `brewery_state`, `brewery_zip`, `brewery_lat`, `brewery_long`, `brewery_description`) VALUES ('','".$breweryName."','".$breweryAddress."','".$breweryCity."','".$breweryState."', '".$breweryZip."','".$breweryLat."','".$breweryLong."','".$breweryDescription."')";
         mysqli_query($connect,$sqlStatement);
 
     }

@@ -19,7 +19,7 @@ if(isset($_POST["listID"]) && isset($_POST["beerID"])){
 class listController {
 
     public static function finishBeer($listID, $finishedBeer){
-        $con = mysqli_connect('localhost','root','','bbyDb');
+        $con = mysqli_connect('localhost','ehess84_bbydb','135Eh183!','ehess84_bbydb');
         $sql = "UPDATE lists";
         $sql .= " SET finished_beers = concat(finished_beers,',".$finishedBeer."')";
         $sql .= " WHERE list_id = ".$listID;
@@ -29,7 +29,7 @@ class listController {
 
 
     public static function completeList($listID){
-        $con = mysqli_connect('localhost','root','','bbyDb');
+        $con = mysqli_connect('localhost','ehess84_bbydb','135Eh183!','ehess84_bbydb');
         $sql = "UPDATE lists";
         $sql .= " SET list_complete = 1";
         $sql .= " WHERE list_id = ".$listID;
