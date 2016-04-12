@@ -52,16 +52,22 @@ class databaseController {
     public static function getBeerList(){
         $connect = databaseController::connectToDatabase();
         $sql = "SELECT * from ehess84_bbydb.beers";
-        $query = mysqli_query($connect, $sql);
-        $result = mysqli_fetch_all($query);
-        return $result;
+        $result = mysqli_query($connect, $sql);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function getBreweryList(){
         $connect = databaseController::connectToDatabase();
         $sql = "SELECT * from ehess84_bbydb.breweries";
-        $query = mysqli_query($connect, $sql);
-        $result = mysqli_fetch_all($query);
-        return $result;
+        $result = mysqli_query($connect, $sql);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 }
