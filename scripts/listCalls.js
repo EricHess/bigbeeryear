@@ -86,7 +86,7 @@ BeerListings.prototype.saveList = function(element){
         url:'/controllers/createListController.php',
         data:element.serialize(),
         success: function(data){
-            window.location = "/bigbeeryear/user/dashboard"
+            window.location = "/user/dashboard"
         }
     })
 };
@@ -97,7 +97,7 @@ BeerListings.prototype.completeList = function(element){
         url:'/controllers/listController.php',
         data:element,
         success: function(data){
-            window.location = "/bigbeeryear/user/dashboard"
+            window.location = "/user/dashboard"
         }
     })
 };

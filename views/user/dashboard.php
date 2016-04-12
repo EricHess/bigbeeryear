@@ -80,7 +80,7 @@ $userLists = userDashboard::getUserLists();
         <?php }
     };
     ?>
-    <a href="/bigbeeryear/create/list">+ Create New List</a>
+    <a href="/create/list">+ Create New List</a>
 
 </section>
 
