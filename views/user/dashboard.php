@@ -9,8 +9,8 @@
 include("./controllers/userDashboard.php");
 $userDash = userDashboard::getUserFirstAndLastName();
 $userName = $userDash[0][1];
-$firstName = $userDash[0][4];
-$lastName = $userDash[0][5];
+$firstName = $userDash[0]["fname"];
+$lastName = $userDash[0]["lname"];
 $userLists = userDashboard::getUserLists();
 ?>
 

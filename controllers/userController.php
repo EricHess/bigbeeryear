@@ -36,7 +36,7 @@ class userController {
                 $data[] = $row;
             }
             $_SESSION['logged_in']= "logged_in";
-            $_SESSION['userID']= $data[0];
+            $_SESSION['userID']= $data;
 
             return true;
         }else{

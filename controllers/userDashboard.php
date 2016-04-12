@@ -12,7 +12,7 @@ class userDashboard {
 
     public static function getUserFirstAndLastName(){
         $con = databaseController::connectToDatabase();
-        $sql = "SELECT * from `users` where uid = '".$_SESSION["userID"][0][0]."'";
+        $sql = "SELECT * from `users` where uid = '".$_SESSION["userID"]["uid"]."'";
         $result = mysqli_query($con,$sql);
         $data = [];
         while ($row = $result->fetch_assoc()) {
@@ -23,7 +23,7 @@ class userDashboard {
 
     public static function getUserLists(){
         $con = databaseController::connectToDatabase();
-        $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"][0][0]."'";
+        $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"]["uid"]."'";
         $result = mysqli_query($con,$sql);
         $data = [];
         while ($row = $result->fetch_assoc()) {
@@ -43,6 +43,7 @@ class userDashboard {
         return $data;
     }
 
+    //TODO: FROM HERE, PARSE THE RIGHT DATA ELEMENTS (LINE 57 FOR EXAMPLE)
     public static function parseBreweryNamesFromIDs($id){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT beer_brewery_id from `beers` where beer_id = '".$id."'";
