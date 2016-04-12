@@ -14,45 +14,64 @@ class userDashboard {
         $con = databaseController::connectToDatabase();
         $sql = "SELECT * from `users` where uid = '".$_SESSION["userID"][0][0]."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function getUserLists(){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"][0][0]."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function parseBeerNamesFromIDs($id){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT * from `beers` where beer_id = '".$id."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function parseBreweryNamesFromIDs($id){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT beer_brewery_id from `beers` where beer_id = '".$id."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
 
-        $sql = "SELECT brewery_name from `breweries` where brewery_id = '".$result[0][0]."'";
+        $sql = "SELECT brewery_name from `breweries` where brewery_id = '".$data[0][0]."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
+        $data2 = [];
+        while ($row = $result->fetch_assoc()) {
+            $data2[] = $row;
+        }
+        return $data2;
 
-        return $result;
     }
 
     public static function parseBeerScoresFromIDs($id){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT beer_score from `beers` where beer_id = '".$id."'";
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function getTotalBeerScore($addArray){
@@ -97,8 +116,11 @@ class userDashboard {
 
         $sql = "SELECT finished_beers from lists where list_id = '" . $listID . "'";
         $result = mysqli_query($con, $sql);
-        $result = mysqli_fetch_all($result);
-        $finishedBeerLength = explode(",", $result[0][0]);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        $finishedBeerLength = explode(",", $data[0][0]);
         $finishedBeerScore = [];
         $finishedBeerScoreAdd = [];
         foreach ($finishedBeerLength as $finishedBeer) {

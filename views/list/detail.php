@@ -24,7 +24,7 @@ if(isset($detailList)){
     $listScore = userDashboard::getTotalBeerScore($entireList[0][3]);
     $listBeerArray = explode(",",$listBeers);
     ?>
-<script src="/bigbeeryear/scripts/listCalls.js"></script>
+<script src="/scripts/listCalls.js"></script>
 <style>
     .finished{text-decoration:line-through}
 </style>
@@ -85,7 +85,7 @@ if(isset($detailList)){
 
     </article>
 <script>new BeerListings();</script>
-    <a href="/bigbeeryear/user/dashboard">< Back To Dashboard</a>
+    <a href="/user/dashboard">< Back To Dashboard</a>
 </section>
 
 

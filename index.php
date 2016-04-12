@@ -15,12 +15,12 @@ session_start();
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="/bigbeeryear/styles/base.css"/>
+        <link rel="stylesheet" href="/styles/base.css"/>
 
-        <script src="/bigbeeryear/scripts/jquery.js"></script>
-        <script src="/bigbeeryear/scripts/creationCalls.js"></script>
-        <script src="/bigbeeryear/scripts/loginCalls.js"></script>
-        <script src="/bigbeeryear/scripts/listCalls.js"></script>
+        <script src="/scripts/jquery.js"></script>
+        <script src="/scripts/creationCalls.js"></script>
+        <script src="/scripts/loginCalls.js"></script>
+        <script src="/scripts/listCalls.js"></script>
     </head>
 
     <body>
@@ -45,15 +45,15 @@ session_start();
     <header class="mainHeader">
         <h1>Big Beer Year</h1>
         <nav class="mainMenu">
-            <nav itemscope="nav_button"><a href="/bigbeeryear">Home</a></nav>
-            <nav itemscope="nav_button"><a href="/bigbeeryear/about-big-beer-year">About</a></nav>
-            <nav itemscope="nav_button"><a href="/bigbeeryear/faqs">FAQs</a></nav>
+            <nav itemscope="nav_button"><a href="/">Home</a></nav>
+            <nav itemscope="nav_button"><a href="/about-big-beer-year">About</a></nav>
+            <nav itemscope="nav_button"><a href="/faqs">FAQs</a></nav>
             <!-- TODO: If logged in.. Don't show create user link (Dashboard), Show logout instead of Login -->
             <?php  if(!isset($_SESSION["logged_in"])){ ?>
-            <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/bigbeeryear/user/create">Start!</a></nav>
+            <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/user/create">Start!</a></nav>
             <nav itemscope="nav_button" class="expandLgn"><a class="expandLogin" href="#">Login</a></nav>
             <?php } else{ ?>
-                <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/bigbeeryear/user/dashboard">Lists</a></nav>
+                <nav itemscope="nav_button" class="startBtn"><a class="startNow" href="/user/dashboard">Lists</a></nav>
                 <nav itemscope="nav_button" class="expandLgn"><a class="logmeout" href="#">Logout</a></nav>
             <?php }; ?>
         </nav>

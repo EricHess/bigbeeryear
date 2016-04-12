@@ -17,7 +17,7 @@ Beer Create:<br />
         <?php
         //TODO: Move this in to a module
         $connect = databaseController::connectToDatabase();
-        $sql = "SELECT * from bbydb.breweries";
+        $sql = "SELECT * from ehess84_bbydb.breweries";
         $result = mysqli_query($connect,$sql);
         $breweries = mysqli_fetch_all($result);
         foreach($breweries as $brewery){

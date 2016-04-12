@@ -1,4 +1,4 @@
-<form name="listStep1" id="listStep1" method="post" action="/bigbeeryear/stages/stage1">
+<form name="listStep1" id="listStep1" method="post" action="/stages/stage1">
     <input type="hidden" name="createType" value="list"/>
     <input type="text" name="listName" value="" placeholder="Name Your List"/>
     <select name="beerSize" class="beerSize">

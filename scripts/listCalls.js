@@ -50,7 +50,7 @@ BeerListings.prototype.bindMethods = function(){
 
     $(".dashboardList.listContainer").click(function(){
         var goto = $(this).data("list-id");
-        window.location = "/bigbeeryear/list/detail?detailList="+goto;
+        window.location = "/list/detail?detailList="+goto;
     })
 
     $(".completeList").click(function(){
@@ -83,7 +83,7 @@ BeerListings.prototype.showAllBeers = function(){
 BeerListings.prototype.saveList = function(element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/createListController.php',
+        url:'/controllers/createListController.php',
         data:element.serialize(),
         success: function(data){
             window.location = "/bigbeeryear/user/dashboard"
@@ -94,7 +94,7 @@ BeerListings.prototype.saveList = function(element){
 BeerListings.prototype.completeList = function(element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/listController.php',
+        url:'/controllers/listController.php',
         data:element,
         success: function(data){
             window.location = "/bigbeeryear/user/dashboard"
@@ -105,7 +105,7 @@ BeerListings.prototype.completeList = function(element){
 BeerListings.prototype.finishBeer = function(beerID, listID, element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/listController.php',
+        url:'/controllers/listController.php',
         data:{"beerID": beerID, "listID":listID},
         success: function(){
             $(element).parents("aside.zebra").addClass("finished");

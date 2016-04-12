@@ -6,7 +6,7 @@
  * Time: 4:05 PM
  */
 
-include("/controllers/userDashboard.php");
+include("./controllers/userDashboard.php");
 $userDash = userDashboard::getUserFirstAndLastName();
 $userName = $userDash[0][1];
 $firstName = $userDash[0][4];

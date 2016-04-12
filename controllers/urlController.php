@@ -14,7 +14,7 @@ class urlController {
     public static function returnURLParameters(){
         $urlParams = '';
         if(!empty($_SERVER['REQUEST_URI'])) {
-            if ($_SERVER['REQUEST_URI'] == '/bigbeeryear/index.php') {
+            if ($_SERVER['REQUEST_URI'] == '/bigbeeryear/index.php' || $_SERVER['REQUEST_URI'] == '/'  ) {
                 $urlParams = '';
             } else {
                 $urlParams = explode('?', $_SERVER['REQUEST_URI']);

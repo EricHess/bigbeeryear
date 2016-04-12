@@ -11,20 +11,20 @@ var bigbeeryearLogin = function(){};
 bigbeeryearLogin.prototype.userLogin = function(element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/userController.php',
+        url:'/controllers/userController.php',
         data:element.serialize(),
         success: function(){
-            window.location = '/bigbeeryear/user/dashboard'
+            window.location = '/user/dashboard'
         }
     })
 };
 bigbeeryearLogin.prototype.userLogout = function(element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/userController.php',
+        url:'/controllers/userController.php',
         data:element.serialize(),
         success: function(){
-            window.location = "/bigbeeryear";
+            window.location = "/";
         }
     })
 };

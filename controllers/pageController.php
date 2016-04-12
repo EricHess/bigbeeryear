@@ -25,7 +25,7 @@ class pageController {
     public static function createPath(){
         $directPath = './views/';
 
-        for($i = 2; $i < urlController::urlParametersCount(); $i++ ){
+        for($i = 1; $i < urlController::urlParametersCount(); $i++ ){
             $directPath .= urlController::returnURLParameters()[$i];
             $directPath .= '/';
 
@@ -36,7 +36,7 @@ class pageController {
         if(file_exists($directPath.'.php')){
         return $directPath.'.php';
         } else{
-            if($_SERVER['REQUEST_URI'] == '/bigbeeryear/'){
+            if($_SERVER['REQUEST_URI'] == '/bigbeeryear/' || $_SERVER['REQUEST_URI'] == '/'  ){
                 return './views/start.php';
             }else{
                 return false;

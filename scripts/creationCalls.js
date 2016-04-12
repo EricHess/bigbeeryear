@@ -7,7 +7,7 @@ var bigbeeryear = function(){};
 bigbeeryear.prototype.itemCreate = function(element){
     $.ajax({
         type:'post',
-        url:'/bigbeeryear/controllers/databaseController.php',
+        url:'/controllers/databaseController.php',
         data:element.serialize(),
         success: function(data){
             alert("Element Created!");
