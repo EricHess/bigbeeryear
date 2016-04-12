@@ -27,14 +27,14 @@ echo 'nuh uh, no post here!';
                 <option value="">Select One</option>';
 
                 foreach($breweryList as $breweries){
-                    echo '<option value="'.$breweries[0].'">'.$breweries[1].'</option>';
+                    echo '<option value="'.$breweries["brewery_id"].'">'.$breweries["brewery_name"].'</option>';
                 };
                 echo '</select>';
 
             echo 'Beers: <select name="beerList" class="beerList">
                 <option>Select One</option>';
                 foreach($beerList as $beers){
-                    echo '<option data-beer-id="'.$beers[0].'" data-brewery-id="'.$beers[3].'">'.$beers[1].'</option>';
+                    echo '<option data-beer-id="'.$beers["beer_id"].'" data-brewery-id="'.$beers["brewery_id"].'">'.$beers["beer_name"].'</option>';
                 };
             echo '</select></li>';
 

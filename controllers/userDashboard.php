@@ -54,6 +54,7 @@ class userDashboard {
         }
         return $data;
 
+        print_r($data);
         $sql = "SELECT brewery_name from `breweries` where brewery_id = '".$data[0][0]."'";
         $result = mysqli_query($con,$sql);
         $data2 = [];

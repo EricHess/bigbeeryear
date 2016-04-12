@@ -19,9 +19,13 @@ Beer Create:<br />
         $connect = databaseController::connectToDatabase();
         $sql = "SELECT * from ehess84_bbydb.breweries";
         $result = mysqli_query($connect,$sql);
-        $breweries = mysqli_fetch_all($result);
+
+        $breweries = [];
+        while ($row = $result->fetch_assoc()) {
+            $breweries[] = $row;
+        }
         foreach($breweries as $brewery){
-            echo '<option name="'.$brewery[1].'" value="'.$brewery[0].'">'.$brewery[1].'</option>';
+            echo '<option name="'.$brewery["brewery_id"].'" value="'.$brewery["brewery_id"].'">'.$brewery["brewery_name"].' - '.$brewery["brewery_city"].', '.$brewery["brewery_state"].'</option>';
         }
         ?>
     </select>

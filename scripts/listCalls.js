@@ -30,7 +30,7 @@ BeerListings.prototype.bindMethods = function(){
     });
 
     $('.beerList').change(function(){
-        const beerId = $(this).find(":selected").data("beer-id");
+        var beerId = $(this).find(":selected").data("beer-id");
         BeerListings.prototype.pushBeerIdsToHiddenField(beerIds, beerId);
     });
 
