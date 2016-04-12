@@ -99,9 +99,13 @@ class userDashboard {
 
         $con = databaseController::connectToDatabase();
         $sql = "SELECT list_beers from lists where list_id = '" . $listID . "'";
-        $result = mysqli_query($con, $sql);
-        $result = mysqli_fetch_all($result);
-        $totalBeerLength = explode(",", $result[0][0]);
+        $result = mysqli_query($con,$sql);
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        print_r($data);
+        $totalBeerLength = explode(",", $data[0][0]);
         $totalBeerScore=[];
         $totalBeerScoreAdd=[];
 
@@ -122,7 +126,7 @@ class userDashboard {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        $finishedBeerLength = explode(",", $data[0][0]);
+        $finishedBeerLength = explode(",", $data[0]["list_beers"]);
         $finishedBeerScore = [];
         $finishedBeerScoreAdd = [];
         foreach ($finishedBeerLength as $finishedBeer) {

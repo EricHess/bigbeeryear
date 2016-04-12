@@ -8,7 +8,6 @@
 
 include("./controllers/userDashboard.php");
 $userDash = userDashboard::getUserFirstAndLastName();
-$userName = $userDash[0][1];
 $firstName = $userDash[0]["fname"];
 $lastName = $userDash[0]["lname"];
 $userLists = userDashboard::getUserLists();
@@ -26,22 +25,23 @@ $userLists = userDashboard::getUserLists();
     <h2>Your Active Lists:</h2>
     <?php
         foreach($userLists as $key=>$userList){
+            print_r($userList);
             if($userList[6] == 0) { ?>
-            <article class="dashboardList listContainer" data-list-id="<?php echo $userList[0]?>">
-                <input type="checkbox" class="completeList" data-list-id="<?php echo $userList[0]?>">Complete List</input>
+            <article class="dashboardList listContainer" data-list-id="<?php echo $userList["list_id"]?>">
+                <input type="checkbox" class="completeList" data-list-id="<?php echo $userList["list_id"]?>">Complete List</input>
                 <header class="listTitles">
-                    <h3 class="lft"><?php echo $userList[2];?></h3>
-                    <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList[3])?></h4>
+                    <h3 class="lft"><?php echo $userList["list_name"];?></h3>
+                    <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList["list_beers"])?></h4>
                     <aside class="clr"></aside>
                 </header>
                 <article class="listDescription">
-                    <?php echo $userList[4];?>
+                    <?php echo $userList["list_description"];?>
                 </article>
 
                 <aside class="listCompletion">
-                    List Completion: <?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%
+                    List Completion: <?php echo userDashboard::getCompletionPercentage($userList["list_id"], "",""); ?>%
                     <aside class="completionBar">
-                        <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%;"></aside>
+                        <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList["list_id"], "",""); ?>%;"></aside>
                     </aside>
                 </aside>
 
@@ -59,20 +59,20 @@ $userLists = userDashboard::getUserLists();
             //TODO: on click of checkbox, update 1 to 0
             ?>
 
-            <article class="dashboardList listContainer" data-list-id="<?php echo $userList[0]?>">
+            <article class="dashboardList listContainer" data-list-id="<?php echo $userList["list_id"]?>">
                 <header class="listTitles">
-                    <h3 class="lft"><?php echo $userList[2];?></h3>
-                    <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList[3])?></h4>
+                    <h3 class="lft"><?php echo $userList["list_name"];?></h3>
+                    <h4 class="rt">List Score: <?php echo userDashboard::getTotalBeerScore($userList["list_beers"])?></h4>
                     <aside class="clr"></aside>
                 </header>
                 <article class="listDescription">
-                    <?php echo $userList[4];?>
+                    <?php echo $userList["list_description"];?>
                 </article>
 
                 <aside class="listCompletion">
-                    List Completion: <?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%
+                    List Completion: <?php echo userDashboard::getCompletionPercentage($userList["list_id"], "",""); ?>%
                     <aside class="completionBar">
-                        <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList[0], "",""); ?>%;"></aside>
+                        <aside class="completionPercentage" style="width:<?php echo userDashboard::getCompletionPercentage($userList["list_id"], "",""); ?>%;"></aside>
                     </aside>
                 </aside>
 
