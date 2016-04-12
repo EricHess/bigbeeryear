@@ -30,10 +30,13 @@ class userController {
             session_start();
 
             $sql = "SELECT * from `users` where name = '".$username."' and password='".$pw."'";
-            $userID = mysqli_query($conn,$sql);
-            $userID = mysqli_fetch_all($userID);
+            $result = mysqli_query($conn,$sql);
+            $data = [];
+            while ($row = $result->fetch_assoc()) {
+                $data[] = $row;
+            }
             $_SESSION['logged_in']= "logged_in";
-            $_SESSION['userID']= $userID;
+            $_SESSION['userID']= $data[0];
 
             return true;
         }else{
