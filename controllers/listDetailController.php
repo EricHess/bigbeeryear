@@ -11,7 +11,6 @@ class listDetailController extends userDashboard {
     public static function getSpecificList($listID){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"]["uid"]."' and list_id = '".$listID."'";
-            echo $sql;
         $result = mysqli_query($con,$sql);
         $data = [];
         while ($row = $result->fetch_assoc()) {

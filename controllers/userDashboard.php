@@ -102,7 +102,7 @@ class userDashboard {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        $totalBeerLength = explode(",", $data[0][0]);
+        $totalBeerLength = explode(",", $data[0]["list_beers"]);
         $totalBeerScore=[];
         $totalBeerScoreAdd=[];
 
@@ -112,7 +112,7 @@ class userDashboard {
 
         foreach($totalBeerScore as $scores){
             if(isset($scores[0])){
-                array_push($totalBeerScoreAdd, $scores[0][0]);
+                array_push($totalBeerScoreAdd, $scores[0]["beer_score"]);
             }
         }
 

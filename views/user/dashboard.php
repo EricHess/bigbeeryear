@@ -25,7 +25,6 @@ $userLists = userDashboard::getUserLists();
     <h2>Your Active Lists:</h2>
     <?php
         foreach($userLists as $key=>$userList){
-            print_r($userList);
             if($userList[6] == 0) { ?>
             <article class="dashboardList listContainer" data-list-id="<?php echo $userList["list_id"]?>">
                 <input type="checkbox" class="completeList" data-list-id="<?php echo $userList["list_id"]?>">Complete List</input>
