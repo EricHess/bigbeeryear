@@ -52,10 +52,8 @@ class userDashboard {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        return $data;
 
-        print_r($data);
-        $sql = "SELECT brewery_name from `breweries` where brewery_id = '".$data[0][0]."'";
+        $sql = "SELECT brewery_name from `breweries` where brewery_id = '".$data[0]["beer_brewery_id"]."'";
         $result = mysqli_query($con,$sql);
         $data2 = [];
         while ($row = $result->fetch_assoc()) {
@@ -104,7 +102,6 @@ class userDashboard {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        print_r($data);
         $totalBeerLength = explode(",", $data[0][0]);
         $totalBeerScore=[];
         $totalBeerScoreAdd=[];

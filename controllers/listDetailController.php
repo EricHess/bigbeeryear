@@ -10,18 +10,25 @@ class listDetailController extends userDashboard {
 
     public static function getSpecificList($listID){
         $con = databaseController::connectToDatabase();
-        $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"][0][0]."' and list_id = '".$listID."'";
+        $sql = "SELECT * from `lists` where list_owner_id = '".$_SESSION["userID"]["uid"]."' and list_id = '".$listID."'";
+            echo $sql;
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
     public static function getFinishedList($listID){
         $con = databaseController::connectToDatabase();
         $sql = "SELECT finished_beers FROM lists where list_id= ".$listID;
         $result = mysqli_query($con,$sql);
-        $result = mysqli_fetch_all($result);
-        return $result;
+        $data = [];
+        while ($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+        return $data;
     }
 
 }

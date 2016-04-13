@@ -6,10 +6,10 @@
  * Time: 4:13 PM
  */
 
-include("/controllers/userDashboard.php");
-include("/controllers/listDetailController.php");
+include("./controllers/userDashboard.php");
+include("./controllers/listDetailController.php");
 $userDash = userDashboard::getUserFirstAndLastName();
-$userName = $userDash[0][1];
+$userName = $userDash[0]["fname"];
 
 if(isset($_GET["detailList"])){
     $detailList = $_GET["detailList"];
@@ -18,10 +18,10 @@ if(isset($_GET["detailList"])){
 if(isset($detailList)){
 
     $entireList= listDetailController::getSpecificList($detailList);
-    $listName = $entireList[0][2];
-    $listDescription = $entireList[0][4];
-    $listBeers = $entireList[0][3];
-    $listScore = userDashboard::getTotalBeerScore($entireList[0][3]);
+    $listName = $entireList[0]["list_name"];
+    $listDescription = $entireList[0]["list_description"];
+    $listBeers = $entireList[0]["list_beers"];
+    $listScore = userDashboard::getTotalBeerScore($entireList[0]["list_beers"]);
     $listBeerArray = explode(",",$listBeers);
     ?>
 <script src="/scripts/listCalls.js"></script>
@@ -52,16 +52,16 @@ if(isset($detailList)){
             foreach($listBeerArray as $beer){
 
                 $beerName = userDashboard::parseBeerNamesFromIDs($beer);
-                $beerName = $beerName[0][1];
+                $beerName = $beerName[0]["beer_name"];
 
                 $breweryName = userDashboard::parseBreweryNamesFromIDs($beer);
-                $breweryName = $breweryName[0][0];
+                $breweryName = $breweryName[0]["brewery_name"];
 
                 $beerScore = userDashboard::parseBeerScoresFromIDs($beer);
-                $beerScore = $beerScore[0][0];
+                $beerScore = $beerScore[0]["beer_score"];
 
                 $finishedBeers = listDetailController::getFinishedList($detailList);
-                $finishedBeers = explode(",", $finishedBeers[0][0]);
+                $finishedBeers = explode(",", $finishedBeers[0]["finished_beers"]);
 
 
                 if(in_array($beer, $finishedBeers)){
