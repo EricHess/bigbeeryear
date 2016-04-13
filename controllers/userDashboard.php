@@ -84,7 +84,7 @@ class userDashboard {
         }
 
         foreach($parsedBeerScore as $scores){
-            array_push($parsedBeerScoreAdd, $scores[0][0]);
+            array_push($parsedBeerScoreAdd, $scores[0]["beer_score"]);
         }
 
         return array_sum($parsedBeerScoreAdd);
@@ -123,7 +123,7 @@ class userDashboard {
         while ($row = $result->fetch_assoc()) {
             $data[] = $row;
         }
-        $finishedBeerLength = explode(",", $data[0]["list_beers"]);
+        $finishedBeerLength = explode(",", $data[0]["finished_beers"]);
         $finishedBeerScore = [];
         $finishedBeerScoreAdd = [];
         foreach ($finishedBeerLength as $finishedBeer) {
@@ -132,7 +132,7 @@ class userDashboard {
 
         foreach($finishedBeerScore as $scores){
             if(isset($scores[0])){
-                array_push($finishedBeerScoreAdd, $scores[0][0]);
+                array_push($finishedBeerScoreAdd, $scores[0]["beer_score"]);
             }
         }
 
