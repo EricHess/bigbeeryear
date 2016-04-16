@@ -53,11 +53,14 @@ BeerListings.prototype.bindMethods = function(){
         window.location = "/list/detail?detailList="+goto;
     })
 
-    $(".completeList").click(function(){
+    $(".completeList").click(function(e){
         BeerListings.prototype.completeList({
             "type":"complete",
             "listId": $(this).data("list-id")
         })
+        e.preventDefault();
+        e.stopPropagation();
+        return false;
     });
 };
 

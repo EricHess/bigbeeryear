@@ -25,7 +25,7 @@ $userLists = userDashboard::getUserLists();
     <h2>Your Active Lists:</h2>
     <?php
         foreach($userLists as $key=>$userList){
-            if($userList[6] == 0) { ?>
+            if($userList["list_complete"] == 0) { ?>
             <article class="dashboardList listContainer" data-list-id="<?php echo $userList["list_id"]?>">
                 <input type="checkbox" class="completeList" data-list-id="<?php echo $userList["list_id"]?>">Complete List</input>
                 <header class="listTitles">
@@ -52,7 +52,7 @@ $userLists = userDashboard::getUserLists();
     <h2>Your Completed Lists:</h2>
     <?php
     foreach($userLists as $key=>$userList){
-        if($userList[6] == 1) {
+        if($userList["list_complete"] == 1) {
 
             //TODO: un-complete functionality
             //TODO: on click of checkbox, update 1 to 0
