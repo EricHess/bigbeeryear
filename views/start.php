@@ -1,3 +1,7 @@
+<?php 
+require_once('./controllers/homeController.php');
+?>
+
 <header class="heroTitle">
     <h2>Have A Year!</h2>
 </header>
@@ -15,6 +19,7 @@
     </article>
 
     <h3>Recently Added</h3>
+    <?php homeController::recentBeers(); ?>
     <article class="recentlyAdded">
         <figure class="added">
             <img src="http://placehold.it/125x125" alt="image alt text"/>
