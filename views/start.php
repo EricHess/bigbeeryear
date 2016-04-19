@@ -19,22 +19,8 @@ require_once('./controllers/homeController.php');
     </article>
 
     <h3>Recently Added</h3>
-    <?php homeController::recentBeers(); ?>
     <article class="recentlyAdded">
-        <figure class="added">
-            <img src="http://placehold.it/125x125" alt="image alt text"/>
-            <figcaption>Date Added: Beer Name</figcaption>
-        </figure>
-
-        <figure class="added">
-            <img src="http://placehold.it/125x125" alt="image alt text"/>
-            <figcaption>Date Added: Beer Name</figcaption>
-        </figure>
-
-        <figure class="added">
-            <img src="http://placehold.it/125x125" alt="image alt text"/>
-            <figcaption>Date Added: Beer Name</figcaption>
-        </figure>
+        <?php homeController::recentBeers(); ?>
     </article>
 
     <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. </p>
